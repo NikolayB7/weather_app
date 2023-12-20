@@ -1,0 +1,17 @@
+.btn{
+  cursor: pointer;
+  outline: none;
+  border: 1px solid transparent;
+  transition: all 0.3s;
+  &__search{
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background: transparent;
+    &:hover{
+      background: orange;
+    }
+  }
+}
