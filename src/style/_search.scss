@@ -1,0 +1,37 @@
+.search{
+  display: flex;
+  &__wrap{
+    &.visible{
+      .search__list{
+        display: block;
+      }
+    }
+  }
+  &__field-wrap{
+    position: relative;
+    min-width: 40vw;
+
+  }
+  &__field{
+    height: 36px;
+    width: 100%;
+  }
+  &__btn{
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  &__list{
+    padding: 5px 10px;
+    border: 1px solid #FFFFFF;
+    margin: 0;
+    background: #FFFFFF;
+    display: none;
+  }
+  &__item{
+    list-style-type: none;
+    border-bottom: 1px solid grey;
+    max-height: 500px;
+    overflow-y: auto;
+  }
+}
