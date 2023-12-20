@@ -5,6 +5,7 @@ import "sanitize.css";
 import {getPosts} from "./Api/meteo"
 import Menu from "./Components/Menu";
 import Search from "./Components/Search";
+import Map from "./Components/Map";
 
 function App() {
 
@@ -30,7 +31,9 @@ function App() {
                 <Menu/>
                 <Search/>
             </header>
-            <main>main</main>
+            <main>
+                <Map/>
+            </main>
             <footer>footer</footer>
         </>
     )
