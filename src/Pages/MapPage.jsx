@@ -3,7 +3,7 @@ import React from 'react';
 const MapPage = () => {
     return (
         <div>
-            MapPage
+           asasas
         </div>
     );
 };
