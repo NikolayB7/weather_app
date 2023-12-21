@@ -1,9 +1,10 @@
 import React from 'react';
+import Map from "../Components/Map";
 
 const MapPage = () => {
     return (
         <div>
-           asasas
+            <Map/>
         </div>
     );
 };

@@ -1,40 +1,22 @@
-import {useEffect, useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import '../src/style/main.scss'
 import "sanitize.css";
 
-import {getPosts} from "./Api/meteo"
-import Menu from "./Components/Menu";
-import Search from "./Components/Search";
-import Map from "./Components/Map";
+import {Route, Routes} from "react-router-dom";
+import HomePage from "./Pages/HomePage";
+import MapPage from "./Pages/MapPage";
+import Layout from "./Components/Layout";
+
 
 function App() {
-
-    const [post,setPost] = useState([])
-
-    useEffect(() => {
-        const fetchDataFromApi = async () => {
-            try {
-                const apiData = await getPosts(); // Используем функцию для получения данных
-                setPost(apiData);
-            } catch (err) {
-                // setError(err.message);
-            }
-        };
-
-        fetchDataFromApi();
-
-    }, []);
-
     return (
         <>
-            <header>
-                <Menu/>
-                <Search/>
-            </header>
-            <main>
-                <Map/>
-            </main>
-            <footer>footer</footer>
+            <Routes>
+                <Route path="/" element={<Layout/>}>
+                    <Route index element={<HomePage/>}></Route>
+                    <Route path="map" element={<MapPage/>}></Route>
+                </Route>
+            </Routes>
         </>
     )
 }

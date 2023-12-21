@@ -22,7 +22,6 @@ export const getCity = async (city) => {
     try {
         const response = await axios.get(`https://geocoding-api.open-meteo.com/v1/search?name=${city}&count=10&language=en&format=json`);
         const responseData = response.data.results;
-        console.log(responseData)
         return responseData;
     } catch (error) {
         console.error('Error in getCity:', error);
