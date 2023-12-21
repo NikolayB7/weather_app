@@ -7,8 +7,12 @@ import HomePage from "./Pages/HomePage";
 import MapPage from "./Pages/MapPage";
 import Layout from "./Components/Layout";
 
+import {useNavigator} from './hooks/hooks'
 
 function App() {
+
+    console.log(useNavigator())
+
     return (
         <>
             <Routes>
