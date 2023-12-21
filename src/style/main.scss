@@ -34,5 +34,9 @@ footer{
 }
 
 .map-container{
-
+  width: 80vw;
+  margin: 0 auto;
+  max-height: 80vh;
+  overflow: hidden;
+  border-radius: 10px;
 }
