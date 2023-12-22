@@ -24,7 +24,7 @@ const Search = () => {
         <div className="search">
             <div className={ searchList.length ? 'search__wrap visible' : 'search__wrap' }>
                 <div className="search__field-wrap">
-                    <input className="search__field form-control" onChange={(e)=>setSearch(e.target.value)} type="search"/>
+                    <input className="search__field form-control" placeholder="Enter city" onChange={(e)=>setSearch(e.target.value)} type="search"/>
                     <button className="search__btn btn btn__search">
                         <SearchImg/>
                     </button>

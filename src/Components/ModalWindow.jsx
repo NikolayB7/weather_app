@@ -4,29 +4,25 @@ import Modal from 'react-bootstrap/Modal';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 import {useSelector} from "react-redux";
+import Search from "./Search";
 function ModalWindow() {
 
     const [show, setShow] = useState(true);
 
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    const enterCity = () => setShow(!show);
 
     return (
         <>
-            {/*<Button variant="primary" onClick={handleShow}>*/}
-            {/*    Launch demo modal*/}
-            {/*</Button>*/}
-
-            <Modal show={show} onHide={handleClose}>
-                <Modal.Header closeButton>
+            <Modal show={true}>
+                <Modal.Header>
                     <Modal.Title>Attention</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    Дайте доступ к геоданным
+                    { show ? <div>Give access to geodata and reload page or enter your city</div> : <Search/>}
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                        Close
+                    <Button variant="primary" onClick={enterCity}>
+                        Enter city
                     </Button>
                 </Modal.Footer>
             </Modal>
