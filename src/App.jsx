@@ -11,8 +11,8 @@ import {useNavigator} from './hooks/hooks'
 
 function App() {
 
-    console.log(useNavigator())
-
+    // console.log(useNavigator())
+    useNavigator()
     return (
         <>
             <Routes>
