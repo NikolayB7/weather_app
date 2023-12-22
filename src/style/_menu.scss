@@ -10,9 +10,11 @@
     cursor: pointer;
     display: flex;
     align-items: center;
+    &:not(:last-child){
+      margin-bottom: 7px;
+    }
   }
   &__link{
-    margin-left: 10px;
     text-decoration: none;
   }
 }

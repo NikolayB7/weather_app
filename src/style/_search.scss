@@ -1,8 +1,21 @@
 .search{
-  display: flex;
+  z-index: 3200;
+
+  &_modal{
+    .search__btn{
+      display: none;
+    }
+    .search__field-wrap{
+      min-width: auto;
+    }
+  }
+  &_header{
+
+  }
+
   &__wrap{
     position: relative;
-    width: 100%;
+
     &.visible{
       .search__list{
         padding: 5px 10px;
@@ -16,6 +29,8 @@
   }
   &__field-wrap{
     position: relative;
+    display: flex;
+    align-items: center;
     min-width: 40vw;
   }
   &__field{
@@ -27,9 +42,11 @@
     }
   }
   &__btn{
+    display: flex;
+    align-items: center;
     position: absolute;
-    top: 0;
     right: 0;
+    top: 0;
   }
   &__list{
     padding: 0px 10px;

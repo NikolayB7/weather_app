@@ -1,15 +1,17 @@
-.btn{
+.button{
   cursor: pointer;
   outline: none;
   border: 1px solid transparent;
   transition: all 0.3s;
   &__search{
+    padding: 7px;
     border-radius: 3px;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100%;
-    background: transparent;
+    background: #FFFFFF;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     &:hover{
       background: orange;
     }

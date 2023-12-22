@@ -20,6 +20,9 @@ export const getPosts = async () => {
 
 export const getCity = async (city) => {
     try {
+        if(city.length < 4){
+            return
+        }
         const response = await axios.get(`https://geocoding-api.open-meteo.com/v1/search?name=${city}&count=10&language=en&format=json`);
         const responseData = response.data.results;
         return responseData;

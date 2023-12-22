@@ -6,17 +6,19 @@ import ModalWindow from "./ModalWindow";
 import {useSelector} from "react-redux";
 const Layout = () => {
     const storeCity = useSelector(state => state.selectedCity.current)
+    const overlay = useSelector(state=>state.stateElements.showOverlay)
 
     return (
         <>
             <header>
                 <Menu/>
-                <Search/>
+                <Search classType="search_header"/>
             </header>
             <main>
                 <Outlet/>
             </main>
             <footer>footer</footer>
+            {overlay && <div className="overlay"></div>}
             { Object.keys(storeCity).length === 0 &&  <ModalWindow/>}
         </>
     );

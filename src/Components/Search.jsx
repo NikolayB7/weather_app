@@ -3,9 +3,10 @@ import SearchImg from "../Icons/SearchImg";
 import {getCity} from "../Api/meteo";
 import {useDispatch} from "react-redux";
 import { currentCity } from "../store/citySlice"
+import { toggleOverlay } from "../store/stateElementSlice"
 
-const Search = () => {
-
+const Search = ({classType}) => {
+    const [showSearch,setShowSearch] = useState(false)
     const [search,setSearch] = useState('')
     const [searchList,setSearchList] = useState([])
     const dispatch = useDispatch()
@@ -28,22 +29,27 @@ const Search = () => {
             lon: city.longitude
         }
         dispatch(currentCity(position))
-        // setSearchList([])
+        // searchList.length && setSearchList([])
         setSearch(city.name)
     }
 
+    const toggleSearch = () => {
+        setShowSearch(!showSearch)
+        dispatch(toggleOverlay(!showSearch))
+    }
+
     return (
-        <div className="search">
+        <div className={`search ${classType}`}>
             <div className={ searchList.length ? 'search__wrap visible' : 'search__wrap' }>
                 <div className="search__field-wrap">
                     <input
                         className="search__field form-control"
                         value={search}
                         placeholder="Enter city"
-                        onChange={(e)=>setSearch(e.target.value)}
+                        onChange={(e)=> setSearch(e.target.value)}
                         type="search"
                     />
-                    <button className="search__btn btn btn__search">
+                    <button className="search__btn button button__search" onClick={()=>toggleSearch()}>
                         <SearchImg/>
                     </button>
                 </div>

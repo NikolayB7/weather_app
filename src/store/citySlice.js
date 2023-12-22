@@ -9,7 +9,6 @@ const selectedCity = createSlice({
     reducers: {
         currentCity(state, action) {
             state.current = action.payload
-            // console.log(action)
         },
     }
 })

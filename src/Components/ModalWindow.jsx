@@ -17,7 +17,7 @@ function ModalWindow() {
                     <Modal.Title>Attention</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    { show ? <div>Give access to geodata and reload page or enter your city</div> : <Search/>}
+                    { show ? <div>Give access to geodata and reload page or enter your city</div> : <Search classType="search_modal"/>}
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="primary" onClick={enterCity}>
