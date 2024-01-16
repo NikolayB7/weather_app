@@ -1,0 +1,25 @@
+.card{
+  padding: 0 10px;
+  background: transparent !important;
+  border: none !important;
+  &__wrapper{
+    display: flex;
+    margin: 0 -10px;
+  }
+  &__wrap{
+    padding: 10px;
+    background: #80D0C7;
+  }
+  &__title{
+
+  }
+  &__body{
+    display: flex;
+  }
+  &__deg{
+    font-size: 25px;
+  }
+  &__img{
+
+  }
+}

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import SearchImg from "../Icons/SearchImg";
 import {getCity} from "../Api/meteo";
 import {useDispatch} from "react-redux";
@@ -9,6 +9,7 @@ const Search = ({classType}) => {
     const [showSearch,setShowSearch] = useState(false)
     const [search,setSearch] = useState('')
     const [searchList,setSearchList] = useState([])
+    const refOutside = useRef(null);
     const dispatch = useDispatch()
     useEffect(()=>{
         const getDataFromApi = async () => {
@@ -23,25 +24,43 @@ const Search = ({classType}) => {
         getDataFromApi();
     },[search])
 
+    useEffect(()=>{
+        function handleClickOutside(event) {
+            if (refOutside.current && !refOutside.current.contains(event.target)) {
+                setShowSearch(false)
+                setSearch('')
+                setSearchList([])
+            }
+        }
+        document.addEventListener('click', handleClickOutside);
+        return () => {
+            document.removeEventListener('click', handleClickOutside);
+        };
+    },[refOutside])
+
     const selectedCity = (city)=>{
+
         let position = {
             lat: city.latitude,
             lon: city.longitude
         }
+
+        setShowSearch(false)
         dispatch(currentCity(position))
-        // searchList.length && setSearchList([])
-        setSearch(city.name)
+        // setSearch(city.name)
+        setSearch('')
+        setSearchList([])
     }
 
     const toggleSearch = () => {
         setShowSearch(!showSearch)
-        dispatch(toggleOverlay(!showSearch))
+        // dispatch(toggleOverlay(!showSearch))
     }
 
     return (
-        <div className={`search ${classType}`}>
+        <div className={`search ${classType}`} ref={refOutside}>
             <div className={ searchList.length ? 'search__wrap visible' : 'search__wrap' }>
-                <div className="search__field-wrap">
+                <div className={showSearch ? 'search__field-wrap show':'search__field-wrap'}>
                     <input
                         className="search__field form-control"
                         value={search}

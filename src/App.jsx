@@ -1,6 +1,9 @@
 import React, {useEffect, useState} from 'react'
-import '../src/style/main.scss'
+import './assets/style/main.scss'
 import "sanitize.css";
+
+import "./assets/fonts/icon-weather/css/helper.css"
+import "./assets/fonts/icon-weather/css/icon-weather.css"
 
 import {Route, Routes} from "react-router-dom";
 import HomePage from "./Pages/HomePage";
@@ -11,7 +14,6 @@ import {useNavigator} from './hooks/hooks'
 
 function App() {
 
-    // console.log(useNavigator())
     useNavigator()
     return (
         <>

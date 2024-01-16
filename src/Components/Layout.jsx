@@ -4,6 +4,7 @@ import Search from "./Search";
 import {Outlet} from "react-router-dom"
 import ModalWindow from "./ModalWindow";
 import {useSelector} from "react-redux";
+import Container from 'react-bootstrap/Container';
 const Layout = () => {
     const storeCity = useSelector(state => state.selectedCity.current)
     const overlay = useSelector(state=>state.stateElements.showOverlay)
@@ -15,7 +16,9 @@ const Layout = () => {
                 <Search classType="search_header"/>
             </header>
             <main>
-                <Outlet/>
+                <Container>
+                    <Outlet/>
+                </Container>
             </main>
             <footer>footer</footer>
             {overlay && <div className="overlay"></div>}
