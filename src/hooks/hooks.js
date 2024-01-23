@@ -35,3 +35,26 @@ export const useNavigator = () => {
 
     return position;
 };
+
+export const useParsePeriod = (data) =>{
+        const result = {};
+        for (let i = 0; i < data.hourly.time.length; i++) {
+            const datetime = data.hourly.time[i];
+            const temperature = data.hourly.temperature_2m[i];
+
+            const dateObj = new Date(datetime);
+            const date = dateObj.toISOString().split('T')[0];
+            const time = dateObj.toISOString().split('T')[1].split('.')[0];
+
+            if (!result[date]) {
+                result[date] = [];
+            }
+
+            result[date].push({
+                time,
+                temperature,
+            });
+        }
+        return result;
+
+}

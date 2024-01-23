@@ -1,9 +1,20 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import CardDay from "../Components/CardDay";
+
+import periodWeek from "../assets/data/period-weather.json"
+import {useParsePeriod} from "../hooks/hooks";
+
 const HomePage = () => {
     const [key, setKey] = useState('days');
+
+    const [period,setPeriod] = useState([])
+
+    useEffect(()=>{
+        setPeriod(useParsePeriod(periodWeek))
+    },[])
+
 
     return (
         <div>
@@ -18,12 +29,15 @@ const HomePage = () => {
                 </Tab>
                 <Tab eventKey="days" title="Next 7 days">
                     <div className="card__wrapper">
-                    <CardDay/>
-                    <CardDay/>
-                    <CardDay/>
-                    <CardDay/>
-                    <CardDay/>
-                    <CardDay/>
+                        {
+                            Object.keys(period).map((el)=> {
+                                return <CardDay day={period[el]} key={el}/>
+                            })
+                        }
+                        {/*{ period.map((el)=>(*/}
+                        {/*    <CardDay/>*/}
+                        {/*))}*/}
+
                     </div>
                 </Tab>
             </Tabs>

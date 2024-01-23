@@ -6,7 +6,7 @@ import "./assets/fonts/icon-weather/css/helper.css"
 import "./assets/fonts/icon-weather/css/icon-weather.css"
 
 import {Route, Routes} from "react-router-dom";
-import HomePage from "./Pages/HomePage";
+import HomePage from "./Pages/HomePage";useNavigator
 import MapPage from "./Pages/MapPage";
 import Layout from "./Components/Layout";
 
