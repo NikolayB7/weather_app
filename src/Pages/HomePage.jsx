@@ -25,19 +25,18 @@ const HomePage = () => {
                 className="mb-3"
             >
                 <Tab eventKey="today" title="Today">
-                    Tab content for Home
+                    {
+                        // <CardDay day={Object.keys(period)[0]} data={Object.keys(period)[0]}/>
+
+                    }
                 </Tab>
                 <Tab eventKey="days" title="Next 7 days">
                     <div className="card__wrapper">
                         {
-                            Object.keys(period).map((el)=> {
-                                return <CardDay day={period[el]} key={el}/>
+                            Object.keys(period).map((day)=> {
+                                return <CardDay day={day} data={period[day]} key={day}/>
                             })
                         }
-                        {/*{ period.map((el)=>(*/}
-                        {/*    <CardDay/>*/}
-                        {/*))}*/}
-
                     </div>
                 </Tab>
             </Tabs>
