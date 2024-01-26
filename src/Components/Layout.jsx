@@ -16,7 +16,7 @@ const Layout = () => {
                 <Search classType="search_header"/>
             </header>
             <main>
-                <Container>getCity
+                <Container className="main-body">getCity
                     <Outlet/>
                 </Container>
             </main>
