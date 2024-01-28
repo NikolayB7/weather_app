@@ -5,6 +5,8 @@ import CardDay from "../Components/CardDay";
 
 import periodWeek from "../assets/data/period-weather.json"
 import {useParsePeriod} from "../hooks/hooks";
+import TabDay from "../Components/TabDay";
+import TabWeek from "../Components/TabWeek";
 
 const HomePage = () => {
     const [key, setKey] = useState('days');
@@ -25,19 +27,10 @@ const HomePage = () => {
                 className="mb-3"
             >
                 <Tab eventKey="today" title="Today">
-                    {
-                        // <CardDay day={Object.keys(period)[0]} data={Object.keys(period)[0]}/>
-
-                    }
+                    <TabDay period={period}/>
                 </Tab>
                 <Tab eventKey="days" title="Next 7 days">
-                    <div className="card__wrapper">
-                        {
-                            Object.keys(period).map((day)=> {
-                                return <CardDay day={day} data={period[day]} key={day}/>
-                            })
-                        }
-                    </div>
+                        <TabWeek period={period}/>
                 </Tab>
             </Tabs>
         </div>
