@@ -9,7 +9,7 @@ import TabDay from "../Components/TabDay";
 import TabWeek from "../Components/TabWeek";
 
 const HomePage = () => {
-    const [key, setKey] = useState('days');
+    const [key, setKey] = useState('today');
 
     const [period,setPeriod] = useState([])
 
